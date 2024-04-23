@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF1A1A1A</color>
+    <color name="dark_grey">#FF212121</color>
+    <color name="grey">#FF303030</color>
+    <color name="light_grey">#FF424242</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="off_white">#FFEEEEEE</color>
+
+    <!-- Green Family -->
+<!--    <color name="bg_green">#FFEFF9F2</color>-->
+<!--    <color name="text_green">#FF1B4C42</color>-->
+
+<!--    <color name="bg_dark_green">#23161D1B</color>-->
+<!--    <color name="bg_light_green">#FFFAFFFB</color>-->
+
+<!--    <color name="hint_green">#771B4C42</color>-->
+
+    <!-- Blue Family -->
+    <color name="bg_blue">#FFEFF2F9</color>
+    <color name="text_blue">#FF1B424C</color>
+
+    <color name="bg_dark_blue">#23161B1D</color>
+    <color name="bg_light_blue">#FFFAFBFF</color>
+
+    <color name="hint_blue">#771B424C</color>
+
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_login"
+    app:startDestination="@id/clientLoginFragment">
+    <fragment
+        android:id="@+id/clientLoginFragment"
+        android:name="com.victoris.neumorphism_chat.client.ClientLoginFragment"
+        android:label="ClientLoginFragment" >
+        <action
+            android:id="@+id/action_clientLoginFragment_to_hostLoginFragment"
+            app:destination="@id/hostLoginFragment"
+            app:popUpTo="@id/clientLoginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/hostLoginFragment"
+        android:name="com.victoris.neumorphism_chat.host.HostLoginFragment"
+        android:label="HostLoginFragment" >
+        <action
+            android:id="@+id/action_hostLoginFragment_to_clientLoginFragment"
+            app:destination="@id/clientLoginFragment"
+            app:popUpTo="@id/hostLoginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
