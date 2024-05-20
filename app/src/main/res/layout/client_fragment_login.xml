@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.UserActivity">
 
     <ImageView
         android:id="@+id/bg_blue"
@@ -20,20 +20,20 @@
         android:id="@+id/layout_paus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/layout_input"
+        android:transitionName="layout_paus_up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed">
+        app:layout_constraintVertical_chainStyle="spread_inside">
 
         <TextView
             android:id="@+id/tv_admin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/nunito_normal"
             android:text="Admin"
             android:textAlignment="center"
@@ -41,9 +41,9 @@
             android:textSize="64sp"
             android:textStyle="bold"
             android:transitionName="admin_up"
-            app:layout_constraintBottom_toTopOf="@+id/tv_user"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_user" />
 
         <TextView
             android:id="@+id/tv_user"
@@ -51,49 +51,33 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/nunito_normal"
             android:text="User"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textColor="@color/text_blue"
-            android:textSize="64sp"
+            android:textSize="32sp"
             android:textStyle="bold"
             android:transitionName="user_down"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_user_detail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_normal"
-            android:text="Feel free to dive into someone's room"
-            android:textAlignment="center"
-            android:textColor="@color/text_blue"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_user" />
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_input"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_login"
+        android:transitionName="layout_input_hide"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_paus">
+        app:layout_constraintTop_toBottomOf="parent">
 
         <soup.neumorphism.NeumorphCardView
-            android:id="@+id/card_login"
+            android:id="@+id/card_room"
             style="@style/Widget.Neumorph.CardView"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:transitionName="input_uname_hide"
+            app:neumorph_backgroundColor="@color/bg_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -103,7 +87,7 @@
             app:neumorph_shapeType="pressed">
 
             <EditText
-                android:id="@+id/input_login"
+                android:id="@+id/input_room"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
@@ -117,14 +101,46 @@
         </soup.neumorphism.NeumorphCardView>
 
         <soup.neumorphism.NeumorphCardView
+            android:id="@+id/card_id"
+            style="@style/Widget.Neumorph.CardView"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:transitionName="input_id_hide"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_room"
+            app:neumorph_backgroundColor="@color/bg_blue"
+            app:neumorph_shadowColorDark="@color/bg_dark_blue"
+            app:neumorph_shadowColorLight="@color/bg_light_blue"
+            app:neumorph_shadowElevation="3dp"
+            app:neumorph_shapeType="pressed">
+
+            <EditText
+                android:id="@+id/input_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/nunito_normal"
+                android:hint="Room ID"
+                android:inputType="number"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/text_blue"
+                android:textColorHint="@color/hint_blue" />
+
+        </soup.neumorphism.NeumorphCardView>
+
+        <soup.neumorphism.NeumorphCardView
             android:id="@+id/card_key"
             style="@style/Widget.Neumorph.CardView"
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:transitionName="input_key_hide"
+            app:neumorph_backgroundColor="@color/bg_blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_login"
+            app:layout_constraintTop_toBottomOf="@+id/card_id"
             app:neumorph_shadowColorDark="@color/bg_dark_blue"
             app:neumorph_shadowColorLight="@color/bg_light_blue"
             app:neumorph_shadowElevation="3dp"
@@ -136,7 +152,7 @@
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:fontFamily="@font/nunito_normal"
-                android:hint="Room Key"
+                android:hint="Room Password"
                 android:inputType="number"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
@@ -148,18 +164,17 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <soup.neumorphism.NeumorphButton
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_create"
         style="@style/Widget.Neumorph.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
         android:fontFamily="@font/nunito_normal"
-        android:text="Log In"
+        android:text="Create Room"
         android:textColor="@color/text_blue"
-        app:layout_constraintBottom_toTopOf="@+id/tv_change_1"
+        android:transitionName="btn_create_hide"
+        app:neumorph_backgroundColor="@color/bg_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_input"
@@ -174,27 +189,51 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito_normal"
-        android:text="Log in as "
+        android:text="Become a "
         android:textColor="@color/text_blue"
         android:textSize="14sp"
-        android:transitionName="user"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:transitionName="admin1_hide"
         app:layout_constraintEnd_toStartOf="@+id/tv_change_2"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_create" />
 
     <TextView
         android:id="@+id/tv_change_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito_bold"
-        android:text="admin"
+        android:text="user"
         android:textColor="@color/text_blue"
         android:textSize="14sp"
+        android:transitionName="admin2_hide"
         app:layout_constraintBottom_toBottomOf="@+id/tv_change_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_change_1"
         app:layout_constraintTop_toTopOf="@+id/tv_change_1" />
+
+    <ImageView
+        android:id="@+id/btn_admin"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:transitionName="admin_real_show"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_admin"
+        app:tint="@color/text_blue" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_room_chat"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:transitionName="room_show"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_paus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

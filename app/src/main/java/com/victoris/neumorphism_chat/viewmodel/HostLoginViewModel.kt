@@ -15,7 +15,7 @@ import com.victoris.neumorphism_chat.MainActivity
 import com.victoris.neumorphism_chat.MainActivity.Companion.SERVER_KEY
 import com.victoris.neumorphism_chat.MainActivity.Companion.databaseUrl
 import com.victoris.neumorphism_chat.MainActivity.Companion.user
-import com.victoris.neumorphism_chat.host.HostChatRoomActivity
+import com.victoris.neumorphism_chat.ui.host.HostChatRoomActivity
 
 class HostLoginViewModel(context: Context): ViewModel() {
 
@@ -69,6 +69,13 @@ class HostLoginViewModel(context: Context): ViewModel() {
             .getReference("/$serverKey")
 
         ref.addListenerForSingleValueEvent(serverListener)
+    }
+
+    fun setPassword(pass: String) {
+        val ref = FirebaseDatabase
+            .getInstance(databaseUrl)
+            .getReference("/$SERVER_KEY/password")
+        ref.setValue(pass)
     }
 }
 

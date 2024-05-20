@@ -3,25 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_login"
-    app:startDestination="@id/clientLoginFragment">
+    app:startDestination="@id/mainLoginFragment">
     <fragment
-        android:id="@+id/clientLoginFragment"
-        android:name="com.victoris.neumorphism_chat.client.ClientLoginFragment"
-        android:label="ClientLoginFragment" >
+        android:id="@+id/mainLoginFragment"
+        android:name="com.victoris.neumorphism_chat.ui.main.MainLoginFragment"
+        android:label="MainLoginFragment" >
         <action
-            android:id="@+id/action_clientLoginFragment_to_hostLoginFragment"
-            app:destination="@id/hostLoginFragment"
-            app:popUpTo="@id/clientLoginFragment"
+            android:id="@+id/action_mainLoginFragment_to_mainSigninFragment"
+            app:destination="@id/mainSigninFragment"
+            app:popUpTo="@id/mainLoginFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/hostLoginFragment"
-        android:name="com.victoris.neumorphism_chat.host.HostLoginFragment"
-        android:label="HostLoginFragment" >
+        android:id="@+id/mainSigninFragment"
+        android:name="com.victoris.neumorphism_chat.ui.main.MainSigninFragment"
+        android:label="MainSigninFragment" >
         <action
-            android:id="@+id/action_hostLoginFragment_to_clientLoginFragment"
-            app:destination="@id/clientLoginFragment"
-            app:popUpTo="@id/hostLoginFragment"
+            android:id="@+id/action_mainSigninFragment_to_mainLoginFragment"
+            app:destination="@id/mainLoginFragment"
+            app:popUpTo="@id/mainSigninFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

@@ -1,33 +1,25 @@
-package com.victoris.neumorphism_chat
+package com.victoris.neumorphism_chat.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.victoris.neumorphism_chat.data.Chat
-import com.victoris.neumorphism_chat.databinding.ActivityMainBinding
+import com.victoris.neumorphism_chat.R
+import com.victoris.neumorphism_chat.databinding.ActivityUserBinding
 
-class MainActivity : AppCompatActivity() {
+class UserActivity : AppCompatActivity() {
 
     // binding
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityUserBinding
 
     // widgets
     private lateinit var navController: NavController
 
-    // user
-    companion object {
-        var SERVER_KEY = -1
-        var user: String = ""
-        var listChat: ArrayList<Chat> = arrayListOf()
-        const val databaseUrl = "https://paus-b5ca0-default-rtdb.asia-southeast1.firebasedatabase.app/"
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         supportActionBar?.hide()

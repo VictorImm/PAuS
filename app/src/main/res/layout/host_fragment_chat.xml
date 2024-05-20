@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- TODO: samain sama host-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.client.ClientChatRoomActivity"
-    android:background="@drawable/bg_blue">
+    android:background="@drawable/bg_blue"
+    tools:context=".ui.host.HostChatRoomActivity">
 
     <!--  Upper Layout  -->
     <ImageView
@@ -26,37 +25,55 @@
         android:id="@+id/tv_room_owner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/nunito_normal"
-        android:text="Owner's Room"
+        android:text="Your Room"
         android:textColor="@color/text_blue"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_back"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_user"
         app:layout_constraintStart_toEndOf="@+id/btn_back"
         app:layout_constraintTop_toTopOf="@+id/btn_back" />
 
+    <ImageView
+        android:id="@+id/btn_user"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_login"
+        android:transitionName="user_show"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_room_owner"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/text_blue" />
+
     <!--  List Layout  -->
+
+    <!--  Footer Layout  -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_chat"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        android:transitionName="rv_chat_show"
         app:layout_constraintBottom_toTopOf="@+id/card_msg"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_back" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_back"
+        app:layout_constraintVertical_bias="0.166" />
 
-    <!--  Footer Layout  -->
     <soup.neumorphism.NeumorphCardView
         android:id="@+id/card_msg"
         style="@style/Widget.Neumorph.CardView"
         android:layout_width="0dp"
         android:layout_height="80dp"
+        android:transitionName="input_show"
         app:neumorph_backgroundColor="@color/bg_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_msg"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:neumorph_shadowColorDark="@color/bg_dark_blue"
@@ -86,6 +103,7 @@
         android:scaleType="center"
         android:src="@drawable/ic_send"
         android:tint="@color/off_white"
+        android:transitionName="btn_show"
         app:neumorph_backgroundColor="@color/text_blue"
         app:layout_constraintBottom_toBottomOf="@+id/card_msg"
         app:layout_constraintEnd_toEndOf="parent"

@@ -18,6 +18,7 @@
 
     <!-- Blue Family -->
     <color name="bg_blue">#FFEFF2F9</color>
+    <color name="bg_blue_darker">#FFDFE2E9</color>
     <color name="text_blue">#FF1B424C</color>
 
     <color name="bg_dark_blue">#23161B1D</color>

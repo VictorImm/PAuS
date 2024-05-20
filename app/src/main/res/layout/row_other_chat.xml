@@ -58,6 +58,7 @@
         app:neumorph_shadowColorLight="@color/bg_light_blue"
         app:neumorph_shadowElevation="3dp"
         app:neumorph_shapeAppearance="@style/OtherBubble"
+        card_view:neumorph_backgroundColor="@color/bg_blue"
         card_view:layout_constraintBottom_toBottomOf="parent"
         card_view:layout_constraintEnd_toEndOf="parent"
         card_view:layout_constraintStart_toStartOf="parent"
