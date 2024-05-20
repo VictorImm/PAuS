@@ -14,7 +14,10 @@
         android:theme="@style/Theme.Neumorphismchat"
         tools:targetApi="31">
         <activity
-            android:name=".client.ClientChatRoomActivity"
+            android:name=".ui.UserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.client.ClientChatRoomActivity"
             android:exported="false" />
         <activity
             android:name=".SplashScreenActivity"
@@ -26,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".host.HostChatRoomActivity"
+            android:name=".ui.host.HostChatRoomActivity"
             android:exported="false"
             android:theme="@style/Theme.Neumorphismchat" />
         <activity
